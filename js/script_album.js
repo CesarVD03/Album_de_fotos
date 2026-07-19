@@ -52,6 +52,7 @@ const songs = [
     "multimedia/music/contigo.mp3",
     "multimedia/music/follow_you.mp3",
     "multimedia/music/imagine.mp3",
+    "multimedia/music/luz_de_dia.mp3",
     "multimedia/music/only_1.mp3",
     "multimedia/music/si_tu_quieres.mp3",
     "multimedia/music/sometimes.mp3",
