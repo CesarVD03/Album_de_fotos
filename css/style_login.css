@@ -1,0 +1,180 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+h1{
+
+    /*Propiedades artisticas del texto*/
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 55px;
+    color: #ffffff;
+    text-shadow:
+        0 0 20px #ff2cff,
+        0 0 10px #1453ff,
+        0 0 20px #39ff14,
+        0 0 40px hsl(303, 100%, 50%);
+
+    text-align: center;
+
+    /*Mover abajo*/
+    position: relative;
+    top: 10vh;
+}
+
+p{
+    color: white;
+    text-shadow: 
+    0 0 10px #cc00ff,
+    0 0 20px rgb(255, 0, 255);
+
+    padding: 0%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*Mover abajo*/
+    position: relative;
+    top: 12vh;
+}
+
+/*Animacion del corazon*/
+.btn-corazon{
+    background: none;
+    border: none;
+    margin: 0%;
+    font-size: 80px;
+    cursor: pointer;
+    display: inline-block;
+
+    animation: latido 1.2s infinite;
+    transition: transform .2s;
+}
+
+.btn-corazon:hover{
+    animation-play-state: paused;
+    transform: scale(1.2);
+}
+
+.btn-corazon:active{
+    transform: scale(0.9);
+}
+
+@keyframes latido{
+    0%,100%{transform: scale(1);}
+    10%{transform: scale(1.25);}
+    20%{transform: scale(1);}
+    30%{transform: scale(1.25);}
+    45%{transform: scale(1);}
+}
+
+#boton_corazon {
+    position: relative;
+    padding: 0;
+    
+    /* 1. Hace que la caja abrace al botón */
+    width: fit-content; 
+    
+    /* 2. Centra la caja horizontalmente */
+    margin: 0 auto; 
+    
+    top:-1vh;
+}
+
+/* Contenedor del fondo animado */
+.cielo-nocturno {
+    position: fixed; /* Se queda fijo aunque hagas scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #24283852; /* Color del cielo nocturno */
+    z-index: -1; /* Lo manda detrás de todo tu contenido */
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+/* Diseño de la estrella fugaz */
+.estrella {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+                0 0 0 8px rgba(255, 255, 255, 0.1), 
+                0 0 20px rgba(255, 255, 255, 1);
+    animation: animarEstrella 3s linear infinite;
+}
+
+/* La estela (cola) de la estrella */
+.estrella::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+/* Animación de trayectoria y difuminado */
+@keyframes animarEstrella {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+/* Posicionar cada estrella y darle tiempos distintos para que no caigan juntas */
+.estrella:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 2s;
+}
+
+.estrella:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+
+.estrella:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+
+.estrella:nth-child(4) {
+    top: 0;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+
+.estrella:nth-child(5) {
+    top: 0;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+}
